@@ -1,9 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <title>موقعي</title>
+<meta charset="UTF-8">
+<title>مودات ماينكرافت</title>
+
+<style>
+/* خط Cairo من مجلد fonts */
+@font-face {
+  font-family: 'Cairo';
+  src: url('fonts/Cairo-Regular.ttf');
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(45deg, #0f172a, #1e293b);
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+
+/* صورة القناة */
+.header img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+/* كرت المود */
+.card {
+  background: #1e293b;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* الفيديو */
+iframe {
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* العداد */
+.counter {
+  margin-top: 15px;
+  font-size: 40px;
+  color: #22c55e;
+  animation: pulse 1s infinite;
+}
+
+/* حركة بسيطة */
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.2);}
+  100% {transform: scale(1);}
+}
+
+/* زر التحميل */
+button {
+  margin-top: 15px;
+  background: #22c55e;
+  border: none;
+  padding: 12px 25px;
+  color: white;
+  font-size: 18px;
+  border-radius: 12px;
+  display: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+</style>
 </head>
-<body style="background:black; color:white; text-align:center;">
-  <h1>🔥 موقعي شغال 🔥</h1>
+
+<body>
+
+<!-- صورة القناة -->
+<div class="header">
+  <img src="https://via.placeholder.com/800x250.png?text=Channel">
+</div>
+
+<!-- مود -->
+<div class="card">
+  <h2>🔥 مود أسطوري 🔥</h2>
+
+  <img src="https://via.placeholder.com/400x200.png?text=MOD">
+
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+
+  <p>
+  هذا وصف احترافي جدًا للمود 🔥  
+  يضيف أشياء خرافية للعبة!
+  </p>
+
+  <div class="counter" id="counter">10</div>
+
+  <button id="downloadBtn" onclick="window.location.href='https://example.com'">
+    ⬇ تحميل المود
+  </button>
+</div>
+
+<script>
+let time = 10;
+let counter = document.getElementById("counter");
+let btn = document.getElementById("downloadBtn");
+
+counter.innerText = time;
+
+let countdown = setInterval(() => {
+  time--;
+  counter.innerText = time;
+
+  if (time === 0) {
+    clearInterval(countdown);
+    btn.style.display = "inline-block";
+  }
+}, 1000);
+</script>
+
 </body>
 </html>
